@@ -22,7 +22,7 @@ This article is not a comprehensive guide to updating from Apache 2.2 to 2.4. Fo
 Make a Backup
 -------------
 
-Make a [backup](/docs/backups) of your data before upgrading your Apache software. Upgrading can sometimes cause you to lose data, particularly if you had settings in an Apache configuration file that no longer apply in Apache 2.4. If you use Apache modules, this is especially likely.
+Make a [backup](/docs/platform/backup-service) of your data before upgrading your Apache software. Upgrading can sometimes cause you to lose data, particularly if you had settings in an Apache configuration file that no longer apply in Apache 2.4. If you use Apache modules, this is especially likely.
 
 Even with the simplest Apache setup, you should back up your Apache settings, modules, and other data in case unforeseen issues arise.
 
@@ -56,8 +56,13 @@ Follow these instructions at any time to update your virtual host configuration 
 
         a2ensite example.com.conf
 
-3.  Repeat Steps 1-2 for all of your virtual hosts.
-4.  Reload Apache:
+3.  Use the `a2dissite` command to disable the old virtual host. Make sure you do not include the `.conf` extension:
+
+        a2dissite example.com
+
+4.  Repeat Steps 1-3 for all of your virtual hosts.
+
+5.  Reload Apache:
 
         service apache2 reload
 

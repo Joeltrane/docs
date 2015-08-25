@@ -13,7 +13,7 @@ published: 'Tuesday, February 11th, 2014'
 title: Package Mirrors
 ---
 
-Linode offers public package mirrors for Ubuntu, Debian, and CentOS. When you install updates and new packages, you must download them from package mirrors. The primary advantage of using the Linode package mirrors versus other public package mirrors is speed. Linode package mirrors are available in all six of our datacenters. The mirrors can be found at:
+Linode offers public package mirrors for Ubuntu, Debian, and CentOS. When you install updates and new packages, you must download them from package mirrors. The primary advantage of using the Linode package mirrors versus other public package mirrors is speed. Linode package mirrors are available in all of our datacenters. The mirrors can be found at:
 
 - <http://tokyo.mirrors.linode.com/>
 - <http://london.mirrors.linode.com/>
@@ -21,6 +21,7 @@ Linode offers public package mirrors for Ubuntu, Debian, and CentOS. When you in
 - <http://atlanta.mirrors.linode.com/>
 - <http://dallas.mirrors.linode.com/>
 - <http://fremont.mirrors.linode.com/>
+- <http://singapore.mirrors.linode.com/>
 
 Package Mirror Settings
 -----------------------
@@ -83,8 +84,8 @@ For a CentOS system follow the instructions below:
 
 5.  Comment each `mirrorlist` line by adding the **\#** sign before each line.
 6.  Uncomment each `baseurl` line by removing the **\#** sign before each line.
-7.  Edit all `baseurl` lines containing the address <http://mirror.centos.org/centos/$releasever/os/$basearch/> to reflect the new address location:
+7.  Edit all `baseurl` lines containing the address http://mirror.centos.org/centos/$releasever/os/$basearch/ to reflect the new address location:
 
-    <http://mirrors.linode.com/centos/$releasever/os/$basearch/>
+        http://mirrors.linode.com/centos/$releasever/os/$basearch/
 
 8.  Save and exit the `CentOS-Base.repo` file.

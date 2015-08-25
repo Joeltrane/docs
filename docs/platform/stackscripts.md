@@ -20,16 +20,16 @@ external_resources:
 Introduction
 ------------
 
-StackScripts are usually Bash scripts, stored in the Linode Manager, and can be accessed when you use the **Rebuild** link from the Linode Dashboard. During the first boot job of the newly created disk images, the StackScript will run, using any variable you may have added, and perform the scripted commands.
+StackScripts are usually Bash scripts, stored in the Linode Manager, and can be accessed when you use the **Rebuild** link from the Linode Dashboard. During the first boot job of the newly created disks, the StackScript will run, using any variable you may have added, and perform the scripted commands.
 
  {: .caution }
 >
-> The **Rebuild** option will destroy all existing disk images and profiles.
+> The **Rebuild** option will destroy all existing disks and profiles.
 
 Deploying from a StackScript
 ----------------------------
 
-1.  We start by navigating to the Linode Dashboard. Before deploying a new disk image, make sure you have enough storage space available. If not you may need to [resize](https://library.linode.com/disk-images-config-profiles#sph_resizing-a-disk-image) or [remove](https://library.linode.com/disk-images-config-profiles#sph_removing-a-disk-image) a disk image. Alternately you can create a new Linode for testing purposes.
+1.  We start by navigating to the Linode Dashboard. Before deploying a new disk, make sure you have enough storage space available. If not you may need to [resize](/docs/migrate-to-linode/disk-images/disk-images-and-configuration-profiles#resizing-a-disk#resizing-a-disk) or [remove](/docs/migrate-to-linode/disk-images/disk-images-and-configuration-profiles#removing-a-disk) a disk. Alternately you can create a new Linode for testing purposes.
 2.  Click on the **Deploy a Linux Distribution** link.
 
     [![Click the 'Deploy a Distribution' link.](/docs/assets/1682-stackscripts-1.png)](/docs/assets/1682-stackscripts-1.png)
@@ -48,11 +48,11 @@ Deploying from a StackScript
 
     [![A search.](/docs/assets/1509-stackscripts_search_small.png)](/docs/assets/1510-stackscripts_search.png)
 
-2.  For this example we'll select the first search result. This brings us to a page where we can define the variables that will go into the StackScript. In this case, the MySQL root password. The other options are standard whenever you deploy a new disk image.
+2.  For this example we'll select the first search result. This brings us to a page where we can define the variables that will go into the StackScript. In this case, the MySQL root password. The other options are standard whenever you deploy a new disk.
 
     [![A public StackScript.](/docs/assets/1511-stackscripts_com_example_small.png)](/docs/assets/1512-stackscripts_com_example.png)
 
-3.  Once you've adjusted the options, hit **Deploy**. You will be returned to the Linode Dashboard, and a disk image will be created.
+3.  Once you've adjusted the options, hit **Deploy**. You will be returned to the Linode Dashboard, and a disk will be created.
 
     [![The newly created.](/docs/assets/1521-stackscripts_disk_create_small.png)](/docs/assets/1522-stackscripts_disk_create.png)
 
@@ -119,7 +119,7 @@ Below are several common use cases for StackScripts.
 
 ### Calling StackScripts Recursively
 
-StackScripts have the ability to call other StackScripts from the library at runtime. This functionality reduces the need to write duplicate code for multiple scripts. For example, the Linode [StackScript Bash Library](https://www.linode.com/stackscripts/view/?StackScriptID=1) is a set of functions that perform various tasks. The script creates the functions but does not run them. A new StackScript can import the Bash Library and then execute functions from it. This reduces the size and time-to-write of all StackScripts using the functions built into the library script.
+StackScripts have the ability to call other StackScripts from the library at runtime. This functionality reduces the need to write duplicate code for multiple scripts. For example, the Linode [StackScript Bash Library](https://www.linode.com/stackscripts/view/1) is a set of functions that perform various tasks. The script creates the functions but does not run them. A new StackScript can import the Bash Library and then execute functions from it. This reduces the size and time-to-write of all StackScripts using the functions built into the library script.
 
 In another example use case for linked StackScripts, a user could create a StackScript that updates all software packages on the system. They would most likely want to perform this function on all new Linodes. The user could then create a StackScript to build a web server that would integrate into his current cluster. Rather than rewrite the commands to update the system, they can call the previous StackScript.
 
@@ -138,7 +138,7 @@ Otherwise execute the script on a second line, as seen below:
     <ssinclude StackScriptID="[NUMBER]">
     ./ssinclude-[NUMBER]
 
-A great example of this use case is the [StackScript Bash Library](https://www.linode.com/stackscripts/view/?StackScriptID=1), created by Linode. This script contains several useful functions to perform common tasks such as updating software and installing Apache, MySQL,etc. Run on its own it does nothing to alter your system. By importing the Bash Library script you can save time in your own StackScripts.
+A great example of this use case is the [StackScript Bash Library](https://www.linode.com/stackscripts/view/1), created by Linode. This script contains several useful functions to perform common tasks such as updating software and installing Apache, MySQL,etc. Run on its own it does nothing to alter your system. By importing the Bash Library script you can save time in your own StackScripts.
 
 ### Demonstrating or Distributing Software Capabilities
 
@@ -242,7 +242,7 @@ The [Linode API](http://www.linode.com/api/index.cfm) contains support for manag
 
     {: .note }
     >
-    > If creating a disk image with `linode.disk.createfromstackscript`, you will need to create a configuration profile and attach the disk to the profile before you can boot and run the StackScript.
+    > If creating a disk with `linode.disk.createfromstackscript`, you will need to create a configuration profile and attach the disk to the profile before you can boot and run the StackScript.
 
 ### Variables and UDFs
 

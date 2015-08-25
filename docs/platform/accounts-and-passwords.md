@@ -125,7 +125,7 @@ Your profile's email account will be updated.
 Passwords
 ---------
 
-Creating strong passwords is essential to protecting your Linode and your Linode Manger account. If you suspect that an unauthorized user has gained access to one of your accounts, you should change the password immediately. Use the instructions in this section to change your Linode Manager password and reset the password for the `root` user on the Linode.
+Creating strong passwords is essential to protecting your Linode and your Linode Manager account. If you suspect that an unauthorized user has gained access to one of your accounts, you should change the password immediately. Use the instructions in this section to change your Linode Manager password and reset the password for the `root` user on the Linode.
 
 ### Changing Your Linode Manager Password
 
@@ -163,17 +163,16 @@ If you can't remember the password for the `root` user on a Linode, use the Lino
 2.  Select a Linode. The Linode's dashboard appears.
 3.  Click **Shut down** to turn off your Linode. Monitor the *Host Job Queue* for a message indicating that your Linode has shut down.
 4.  Click the **Rescue** tab. The rescue webpage appears.
-5.  Select your primary disk image from the **Filesystem** menu.
+5.  Select your primary disk from the **Filesystem** menu.
 6.  Enter a new password for the `root` user in the **New Password** field.
 7.  Click **Reset Root Password**. The Linode's dashboard appears.
 8.  Click **Boot** to turn on your Linode.
 
-Now you can use the new `root` user password to log in to your Linode. See [Connecting to Your Linode](getting-started#sph_connecting-to-your-linode) for more information about connecting.
+Now you can use the new `root` user password to log in to your Linode. See [Connecting to Your Linode](/docs/getting-started#connecting-to-your-linode) for more information about connecting.
 
 Next Steps
 ----------
 
-You can take additional steps to secure your Linode Manager account by enabling the two-factor authentication and IP address whitelisting features. You can also configure security event notifications and disable API access. For instructions, see the [Security](/docs/linode-manager-security) guide.
-
+You can take additional steps to secure your Linode Manager account by enabling the two-factor authentication and IP address whitelisting features. You can also configure security event notifications and disable API access. For instructions, see the [Security](/docs/security/linode-manager-security-controls/) guide.
 
 

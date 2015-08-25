@@ -17,7 +17,7 @@ SquirrelMail is a webmail package written in PHP. It supports both SMTP and IMAP
 
  {: .note }
 >
-> This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Privileges](https://library.linode.com/using-linux/users-and-groups) guide.
+> This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Privileges](/docs/tools-reference/linux-users-and-groups) guide.
 
 Installation
 ------------
@@ -112,7 +112,7 @@ Configuring SquirrelMail
 
 Before using SquirrelMail for the first time, it needs to be configured to access your mail server. SquirrelMail provides a tool called `squirrelmail-configure`, which provides an interactive interface which edits the `/etc/squirrelmail/config.php` file for you with the input you provide.
 
-1.  Launch the squirrelmail-configure applicaton with the command:
+1.  Launch the squirrelmail-configure application with the command:
 
         sudo squirrelmail-configure
 

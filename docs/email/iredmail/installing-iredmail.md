@@ -28,7 +28,7 @@ Before beginning this guide you should have:
 - An understanding of the [Linux command line](/docs/networking/ssh/using-the-terminal).
 - A Linode running Ubuntu 14.04.
 
-This guide assumes you've followed the Linode [Getting Started](h) documentation If you haven't done so, read through the guide, and return here following the completion of the "Setting the Hostname" section.
+This guide assumes you've followed the Linode [Getting Started](/docs/getting-started) documentation If you haven't done so, read through the guide, and return here following the completion of the "Setting the Hostname" section.
 
 The steps required in this guide require root privileges. Be sure to run the steps below as ``root`` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 
@@ -183,7 +183,7 @@ After first logging in to the postmaster account, you should have two emails wai
         smtpd_tls_key_file = /etc/ssl/private/mail.yourdomain.com.key
         ~~~
 
-4. To replace the certs used by Postfix, subsitute the following paths in `dovecot.conf` with the location of your certificate and key:
+4. To replace the certs used by Postfix, substitute the following paths in `dovecot.conf` with the location of your certificate and key:
 
     {: .file-excerpt}
     /etc/dovecot/dovecot.conf
@@ -191,7 +191,7 @@ After first logging in to the postmaster account, you should have two emails wai
 	    ssl_cert = </etc/ssl/certs/mail.yourdomain.com.crt
         ssl_key = </etc/ssl/private/mail.yourdomain.com.key
         ~~~
-<!-- syntax hilighting fix-->
+<!-- syntax highlighting fix-->
 
 5. To apply the certificate changes to both your web and mail server, run the following commands:
 
@@ -382,15 +382,15 @@ For this reason, the author recommends turning this module off. Note, since bein
 As a final test, you can utilize a service such as [Mail Tester][m] to ensure that your records have been configured correctly. If you have followed this guide precisely, you should receive a score of 10/10 on Mail Tester's site. If not, Mail Tester will provide you with a report indicating what portion of your configuration needs improvement.
 
  {: .note }
->While some DNS records update almost instantaneously, updates can take up to 24 hours to propigate. You may receive a lower score on these tests if your records have not yet updated.
+>While some DNS records update almost instantaneously, updates can take up to 24 hours to propagate. You may receive a lower score on these tests if your records have not yet updated.
 
 ## Conclusion
 Familiarize yourself with the various files, configs, and settings listed in the iRedMail emails and website and start adding users to your mail server. Happy Mailing!
 
 [l]:https://www.linode.com
 [i]:http://www.iredmail.org
-[h]:https://library.linode.com/getting-started
-[u]:http://www.iredmail.org/install_iredmail_on_ubuntu.html
+[h]:https://www.linode.com/docs/getting-started
+[u]:http://www.iredmail.org/docs/install.iredmail.on.debian.ubuntu.html
 [d]:https://code.google.com/p/iredmail/wiki/DNS_DKIM
 [s]:https://code.google.com/p/iredmail/wiki/DNS_SPF
 [m]:http://www.mail-tester.com

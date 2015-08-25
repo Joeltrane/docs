@@ -32,13 +32,14 @@ The first command should show your short hostname, and the second should show yo
 Installing Nginx from Debian Repositories
 -----------------------------------------
 
-All of the following updates, upgrades, and installs use a non-root account. Therefore, `sudo` is required before commands, if you are using `root` to perform these commands than sudo would not be required. For more information regarding account permissions, view our [Linux Users and Groups Guide](/docs/using-linux/users-and-groups/).
+All of the following updates, upgrades, and installs use a non-root account. Therefore, `sudo` is required before commands, if you are using `root` to perform these commands than sudo would not be required. For more information regarding account permissions, view our [Linux Users and Groups Guide](/docs/tools-reference/linux-users-and-groups/).
 
 Nginx is included as part of the Debian software repositories. The preferred installation method utilizes the Debian repositories. The commands for installation are as follows:
 
     sudo apt-get update
     sudo apt-get upgrade
     sudo apt-get install nginx
+    sudo service nginx start
 
 Installing Nginx with the Debian package maintainers provides quality control, testing, and security updates that ensure that you are running the best possible version of the software for your operating system. This document is written against the release version 1.2.1-22.
 

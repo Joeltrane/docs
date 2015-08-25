@@ -6,11 +6,11 @@ modified_by:
   name: Alex Fornuto
 categories:
  - remote-desktop
+ - chef
  - voip
  - cloud-storage
  - containers
  - game-servers
- - media-servers
  - media-servers
  - messaging
  - development

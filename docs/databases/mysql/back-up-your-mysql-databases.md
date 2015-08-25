@@ -15,7 +15,7 @@ title: Back Up Your MySQL Databases
 
 MySQL is an open source relational database management system (DBMS) which is frequently deployed in a wide assortment of contexts. Most frequently it is deployed as part of the [LAMP Stack](/docs/lamp-guides). The database system is also easy to use and highly portable and is, in the context of many applications, extremely efficient. As MySQL is often a centralized data store for large amounts of mission critical data, making regular backups of your MySQL database is one of the most important disaster recovery tasks a system administrator can perform. This guide addresses a number of distinct methods for creating back ups of your database as well as restoring databases from backups.
 
-Before beginning the installation process, we assume you've followed the steps outlined in our [getting started guide](/docs/getting-started/). Additionally, you will need to install the [MySQL Database](/docs/databases/mysql/). All configuration will be performed in a terminal session; make sure you're logged into your Linode as root via SSH. If you're new to Linux server administration you may be interested in our [using Linux](/docs/using-linux/) document series including the [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics).
+Before beginning the installation process, we assume you've followed the steps outlined in our [getting started guide](/docs/getting-started/). Additionally, you will need to install the [MySQL Database](/docs/databases/mysql/). All configuration will be performed in a terminal session; make sure you're logged into your Linode as root via SSH. If you're new to Linux server administration you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/linux-users-and-groups/), [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics).
 
 Backup Methodology
 ------------------
@@ -34,23 +34,25 @@ It is often necessary to take a back up (or "dump") of an entire database manage
 
 ### Option 1: Create Backups of an Entire Database Management System Using the mysqldump Utility
 
-The most straight forward method for creating a single coherent backup of the entire MySQL database management system uses the `mysqldump` utility from the command line. The syntax resembles the following:
+The most straight forward method for creating a single coherent backup of the entire MySQL database management system uses the `mysqldump` utility from the command line. The syntax for creating a database dump with a current timestamp is as follows:
 
-    mysqldump -u squire -ps3cr1t -h localhost --all-databases > 1266861650-backup-all.sql
+    mysqldump --all-databases > dump-$( date '+%Y-%m-%d_%H-%M-%S' ).sql -u root -p
 
-In this example the *database* username is "squire," and the password is "s3cr1t." Additionally the hostname is "localhost." As long as the MySQL server is running and bound to an accessible IP address, `mysqldump` can backup a database located on a remote machine. Since `mysqldump` prints all of the database content to the standard output, the above command routes all database content into the `1266861650-backup-all.sql` file. We strongly recommend naming backup files in such a way as to allow easy determination of when a backup was taken and what databases were backed up. The following example provides a clearer demonstration of `mysqldump` syntax:
+This command will prompt you for a password before beginning the database backup in the current directory. This process can take anywhere from a few seconds to a few hours depending on the size of your databases.
 
-    mysqldump -u [username] -p[password] -h [host] --all-databases > [backup].sql
+Automate this process by adding a line to `crontab`:
 
-To back up the entire DBMS using the root account, the command might resemble the following:
+    0 1 * * * /usr/bin/mysqldump --all-databases > dump-$( date '+%Y-%m-%d_%H-%M-%S' ).sql -u root -pPASSWORD
 
-    mysqldump -u root -p -h localhost --all-databases > 1266863089-mysqlFullBackup.sql
+For the example above, use `which mysqldump` to confirm the correct path to the command, and replace `root` with the mysql user you would like to run backups as, and `PASSWORD` with the correct password for that user.
 
-This command will prompt you for a password before beginning the database backup located at `1266863089-mysqlFullBackup.sql` in the current directory. This process can take anywhere from a few seconds to a few hours depending on the size of your databases.
+{: .note}
+>
+> In the crontab example, ensure that there is no space between the -P flag, and your password entry.
 
 ### Option 2: Create Backups of an Entire DBMS Using Copies of the MySQL Data Directory
 
-While the `mysqldump` tool is the preferred backup method, there are a couple of cases that require a different approach. `mysqldump` only works when the database server is accessible and running. If the database cannot be started or the host system is inaccessible, we can copy MySQL's database directly. This method is often necessary in situations where you only have access to a recovery environment like [Finnix](/docs/troubleshooting/finnix-rescue-mode) with your system's disk images mounted in that file system. If you're attempting this method on your system itself, ensure that the database is **not** running. Issue a command that resembles the following:
+While the `mysqldump` tool is the preferred backup method, there are a couple of cases that require a different approach. `mysqldump` only works when the database server is accessible and running. If the database cannot be started or the host system is inaccessible, we can copy MySQL's database directly. This method is often necessary in situations where you only have access to a recovery environment like [Finnix](/docs/troubleshooting/finnix-rescue-mode) with your system's disks mounted in that file system. If you're attempting this method on your system itself, ensure that the database is **not** running. Issue a command that resembles the following:
 
     /etc/init.d/mysqld stop
 
@@ -326,7 +328,7 @@ Remember that the semi-colons (e.g. `;`) following each statement are required. 
     USE customer;
     CREATE TABLE order (custNum INT, orderName VARCHAR(20));
 
-Depending on your deployment, you may need to create a new MySQL user or recreate aprevious user with access to the newly created database. The command for creating a new MySQL user takes the following form:
+Depending on your deployment, you may need to create a new MySQL user or recreate a previous user with access to the newly created database. The command for creating a new MySQL user takes the following form:
 
     CREATE USER '[username]'@'[host]' IDENTIFIED BY '[password]';
 

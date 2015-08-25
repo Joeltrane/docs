@@ -15,7 +15,7 @@ title: 'LEMP Server on Debian 7 (Wheezy)'
 
 This document describes a compatible alternative to the **LAMP** (Linux,Apache, MySQL, and PHP) stack, known as **LEMP**. The LEMP stack replaces the Apache web server component (which is the "A" in LAMP) with Nginx (pronounced "engine x", providing the "E" in LEMP). LEMP is comprised of a variety of open source software used to build and run web servers.
 
-Prior to beginning this guide, please complete the [Getting Started guide](/docs/getting-started/). If you are new to Linux systems administration, you may want to consider the guides in our [Using Linux guide](/docs/using-linux/) series, particularly [Linux Administration Basics](/docs/using-linux/administration-basics).
+Prior to beginning this guide, please complete the [Getting Started guide](/docs/getting-started/). If you are new to Linux server administration, you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts/), [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics).
 
 Set the Hostname
 ----------------
@@ -71,7 +71,7 @@ You will need to configure `server` declarations to specify name-based virtual h
 
 Create the `public_html` and `log` directories referenced in this configuration by issuing the following command (make sure to change example.com to your domain name):
 
-    sudo mkdir -p /srv/www/example.com/{public_html, logs}
+    sudo mkdir -p /srv/www/example.com/{public_html,logs}
 
 Then issue the following commands to enable the site and restart the web server.
 
@@ -85,12 +85,12 @@ To deactivate a site, simply delete the symbolic link by issuing the following c
 
 The source file is saved, and the site can be re-enabled at any time.
 
-For more information regarding Nginx configuration options, consider our [Overview of Nginx Configuration](/docs/websites/nginx/basic-nginx-configuration/basic).
+For more information regarding Nginx configuration options, consider our [Overview of Nginx Configuration](/docs/websites/nginx/basic-nginx-configuration).
 
 Deploy PHP with FastCGI
 -----------------------
 
-In order to deploy PHP applications, you will need to implement the following "PHP-FastCGI" solution to allow Nginx to properly handle and serve pages that contain PHP code. For a more complete introduction to this subject, consider our dedicated guide to [PHP FastCGI with Nginx](/docs/web-servers/nginx/php-fastcgi/debian-7-wheezy). Begin the deployment process by issuing the following command to install the required dependencies:
+In order to deploy PHP applications, you will need to implement the following "PHP-FastCGI" solution to allow Nginx to properly handle and serve pages that contain PHP code. Begin the deployment process by issuing the following command to install the required dependencies:
 
     sudo apt-get install php5-cli php5-cgi spawn-fcgi php-pear
 
@@ -216,8 +216,8 @@ More Information
 
 You may wish to consult the following resources for additional information on this topic. While these are provided in the hope that they will be useful, please note that we cannot vouch for the accuracy or timeliness of externally hosted materials.
 
-- [Basic Nginx Configuration](/docs/websites/nginx/basic-nginx-configuration/basic)
-- [Clustered Web Servers and Software Load Balancing with Nginx](/docs/websites/nginx/basic-nginx-configuration/front-end-proxy-and-software-load-balancing)
+- [Basic Nginx Configuration](/docs/websites/nginx/basic-nginx-configuration)
+- [Clustered Web Servers and Software Load Balancing with Nginx](/docs/uptime/loadbalancing/use-nginx-for-proxy-services-and-software-load-balancing)
 - [Deploy CGI and Perl Scripts with Perl-FastCGI and Nginx](/docs/web-servers/nginx/perl-fastcgi/debian-6-squeeze)
 - [Use PostgeSQL as an Alternative to MySQL for data storage](/docs/databases/postgresql/debian-6-squeeze)
 - [Deploy Python Applications with uWSGI and Nginx](/docs/web-servers/nginx/python-uwsgi/debian-6-squeeze)

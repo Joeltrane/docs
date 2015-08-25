@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-description: Configure a MondoDB ReplSet
+description: Configure a MongoDB ReplSet
 keywords: 'mongodb,nosql,clusters,replset,databases'
 license: '[CC BY-ND 3.0](http://creativecommons.org/licenses/by-nd/3.0/us/)'
 alias: ['databases/mongodb/ubuntu-12/']
@@ -15,9 +15,9 @@ title: 'Creating a MongoDB Replication Set on Ubuntu 12.04 (Precise)'
 
 MongoDB is an open-source, non-SQL database engine. MongoDB is scalable and an alternative to the standard relational database management system (RDBMS). A replication set is used for redundancy and to provide access to your data in the event of a node failure.
 
-Before installing MongoDB, it is assumed that you have followed our getting started guide. If you are new to Linux server administration, you may want to consult our using Linux document series including the [Linux Beginner's guide](/docs/using-linux/) and [Administration Basics guide](/docs/using-linux/administration-basics).
+Before installing MongoDB, it is assumed that you have followed our getting started guide. If you are new to Linux server administration, you may want to consult our using Linux document series including the [Introduction to Linux Concepts guide](/docs/tools-reference/introduction-to-linux-concepts) and [Administration Basics guide](/docs/using-linux/administration-basics).
 
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo command`, you can review our [Users and Groups](https://library.linode.com/using-linux/users-and-groups) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo command`, you can review our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 
 Installing MongoDB
 ------------------

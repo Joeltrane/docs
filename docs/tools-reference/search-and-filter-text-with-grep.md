@@ -15,7 +15,7 @@ title: Search and Filter Text with grep
 
 The `grep` utility provides users of most Unix-like operating systems with a tool to search and filter text using a common regular expression syntax. Indeed, `grep` is so ubiquitous that the verb "to grep" has emerged as a synonym for "to search." `grep` is an ideal tool for finding all occurrences of a value in a selection of files, filtering a log file for certain entries, or as part of a script or chain of commands.
 
-This document provides an overview of `grep` usage, accompanied by a number of practical applications of `grep`. If you find this guide helpful, please consider our guide to [basic administration practices](/docs/using-linux/administration-basics) or the rest of the [using linux series](/docs/using-linux/).
+This document provides an overview of `grep` usage, accompanied by a number of practical applications of `grep`. If you find this guide helpful, please consider our guide to [basic administration practices](/docs/using-linux/administration-basics) or the rest of the [Tools & Reference section](/docs/tools-reference/).
 
 Using Grep
 ----------
@@ -45,7 +45,7 @@ Grep provides a number of very powerful options to control its output. The most 
 
 In addition to reading content from files, `grep` can read and filter a text feed on standard input. The output of any command or stream can be "piped" (e.g. with the `|` operator) to the `grep` command. Then, `grep` filters this output according to the match pattern specified and outputs only the matching lines. For instance, given the following command:
 
-> ls --help | grep "dired"
+    ls --help | grep "dired"
 
 This filters the output of the `ls` commands help text and looks for appearances of "dired", and outputs them to standard out (the current session). The output resembles:
 

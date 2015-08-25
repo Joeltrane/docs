@@ -15,11 +15,11 @@ title: 'Secure Communications with OpenVPN on Ubuntu 12.04 (Precise) and Debian 
 
 OpenVPN, or Open Virtual Private Network, is a tool for creating networking tunnels between and among groups of computers that are not on the same local network. This is useful if you want to remotely access services on a local network without making them publicly accessible. By integrating with OpenSSL, OpenVPN can encrypt all VPN traffic to provide a secure connection between machines.
 
-Before installing OpenVPN, we assume that you have followed our [Getting Started Guide](/docs/getting-started/). If you're new to Linux server administration you may be interested in our [Using Linux](/docs/using-linux/) document series, including the [Beginner's Guide](/docs/beginners-guide/) and [Administration Basics Guide](/docs/using-linux/administration-basics). If you're concerned about securing on your Linode, you might be interested in our [Security Basics](/docs/security/basics) article as well.
+Before installing OpenVPN, we assume that you have followed our [Getting Started Guide](/docs/getting-started/). If you're new to Linux server administration you may be interested in our [Introduction to Linux Concepts Guide](/docs/tools-reference/introduction-to-linux-concepts), [Beginner's Guide](/docs/beginners-guide/) and [Administration Basics Guide](/docs/using-linux/administration-basics). If you're concerned about securing on your Linode, you might be interested in our [Security Basics](/docs/security/basics) article as well.
 
  {: .note }
 >
-> For many private networking tasks, we suggest that you consider the functions of the OpenSSH package which can provide easier VPN and VPN-like services. OpenSSH is also installed and configured by default on all Linodes. For example, see [Using SSHFS on Linux and MacOS X](/docs/networking/ssh-filesystems) or our guide on [Setting up an SSH Tunnel](https://library.linode.com/networking/socks-proxy) for more information. Nevertheless, if your deployment requires a more traditional VPN solution like OpenVPN, this document covers the installation and configuration of the OpenVPN software.
+> For many private networking tasks, we suggest that you consider the functions of the OpenSSH package which can provide easier VPN and VPN-like services. OpenSSH is also installed and configured by default on all Linodes. For example, see [Using SSHFS on Linux and MacOS X](/docs/networking/ssh-filesystems) or our guide on [Setting up an SSH Tunnel](/docs/networking/ssh/setting-up-an-ssh-tunnel-with-your-linode-for-safe-browsing) for more information. Nevertheless, if your deployment requires a more traditional VPN solution like OpenVPN, this document covers the installation and configuration of the OpenVPN software.
 
 How OpenVPN Works
 -----------------
@@ -28,7 +28,7 @@ Once configured, the OpenVPN server encrypts traffic between your local computer
 
 [![Splash screen for TunnelBlick.](/docs/assets/1359-BasicVPNTraffic.jpg)](/docs/assets/1359-BasicVPNTraffic.jpg)
 
-With the additional configuration we will set up at the end of this guide, all traffic coming from your local computer can be tunneled through the VPN server. This can be used to curcumvent local traffic restrictions, or to mask the traffic coming from your computer.
+With the additional configuration we will set up at the end of this guide, all traffic coming from your local computer can be tunneled through the VPN server. This can be used to circumvent local traffic restrictions, or to mask the traffic coming from your computer.
 
 [![Splash screen for TunnelBlick.](/docs/assets/1360-FullTunneling.jpg)](/docs/assets/1360-FullTunneling.jpg)
 
@@ -246,8 +246,6 @@ Here we will go through installing Tunneblick on OSX:
 
 4.  Tunnelblick will open a Finder window into which you can copy the client.conf and client1 ca, crt, and key files you created on the Linode and copied to this client machine. Follow the rest of the instructions shown in Tunnelblick to create and install your Tunnelblick configuration file.
 
-    [![Splash screen for TunnelBlick.](/docs/assets/1357-tunnelblick5.3.png)](/docs/assets/1357-tunnelblick5.3.png)
-
 Connecting to the VPN
 ---------------------
 
@@ -334,7 +332,7 @@ By deploying the following configuration, you will be able to forward *all* traf
 
 	{: .note }
 	>
-	> If you are using Debian 7, replace this command with `apt-get install dnsmasq resolvconf` and skip steps 7 thorugh 9
+	> If you are using Debian 7, replace this command with `apt-get install dnsmasq resolvconf` and skip steps 7 through 9
 
 7.  You will be presented with a series of options in an ncurses menu. First, choose **yes** to prepare `/etc/resolv.conf` for dynamic updates.
 

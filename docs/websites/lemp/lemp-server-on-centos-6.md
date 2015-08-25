@@ -15,7 +15,7 @@ title: LEMP Server on CentOS 6
 
 This document describes a compatible alternative to the "LAMP" (Linux, Apache, MySQL, and PHP) stack, known as "LEMP." The LEMP stack replaces the Apache web server component with nginx (pronounced "engine x," providing the "E" in LEMP,) which can increase the ability of the server to scale in response to demand.
 
-Prior to beginning this guide, please complete the [getting started guide](/docs/getting-started/). If you are new to Linux systems administration, you may want to consider the guides in our [using Linux guide](/docs/using-linux/) series, particularly "[Linux Administration Basics](/docs/using-linux/administration-basics)."
+Prior to beginning this guide, please complete the [getting started guide](/docs/getting-started/). If you are new to Linux server administration, you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts/), [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics).
 
 Set the Hostname
 ----------------
@@ -41,7 +41,7 @@ There are several viable and popular options for installing nginx. The first opt
 
 The second option requires downloading the source for nginx from the upstream provider and compiling the software manually. Manual compilation makes it possible to run the most current version of the software at the expense of the testing and automatic updates from the Fedora project. All options are compatible, but in most cases we recommend using the packages from the EPEL repositories, unless your needs require a version newer than the one available in the EPEL repositories. Possible reasons for compiling nginx yourself include access to optional compile-time modules and features added in more recent versions.
 
-For more in-depth installation instructions consider our [guide to installing nginx](/docs/web-servers/nginx/installation/centos-6).
+For more in-depth installation instructions consider our [guide to installing nginx](/docs/websites/lemp/lemp-server-on-centos-6).
 
 ### Deploy from EPEL Packages
 
@@ -271,7 +271,7 @@ nginx.conf
     }
     ~~~
 
-Depending on the size and nature of your deployment, place your virtual host configurations either directly in the `/opt/nginx-sites.conf` file or include statements for server-specific configuration files in the `nginx-sites.file` format. For more information regarding nginx configuration options, consider our [overview of nginx configuration](/docs/websites/nginx/basic-nginx-configuration/basic).
+Depending on the size and nature of your deployment, place your virtual host configurations either directly in the `/opt/nginx-sites.conf` file or include statements for server-specific configuration files in the `nginx-sites.file` format. For more information regarding nginx configuration options, consider our [overview of nginx configuration](/docs/websites/nginx/basic-nginx-configuration).
 
 Once you've configured and loaded the nginx configuration, restart the web server to implement the new configuration by issuing the following command:
 
@@ -282,7 +282,7 @@ Make sure that the directories referenced in your configuration exist on your fi
 Deploy PHP with FastCGI
 -----------------------
 
-If your application includes PHP code you will need to implement the following "PHP-FastCGI" solution to allow nginx to properly handle and serve pages that contain PHP code. For a more complete introduction to this subject, consider our dedicated guide to [PHP FastCGI with Nginx](/docs/web-servers/nginx/php-fastcgi). Begin the deployment process by issuing the following commands to install the required dependencies:
+If your application includes PHP code you will need to implement the following "PHP-FastCGI" solution to allow nginx to properly handle and serve pages that contain PHP code. Begin the deployment process by issuing the following commands to install the required dependencies:
 
     rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm 
     yum update     
@@ -472,14 +472,14 @@ Issue the following command to get a root prompt for the MySQL server:
 
     mysql -u root -p
 
-Enter the root password created above and then issue the following sequence of commands to create the `ducklington` and `squire` database users, grant the `squire` user access to the `ducklington` database, and exit from the database:
+Enter the root password created above and then issue the following sequence of commands to create the `example` and `squire` database users, grant the `squire` user access to the `example` database, and exit from the database:
 
-    CREATE DATABASE ducklington;
+    CREATE DATABASE example;
     CREATE USER 'squire' IDENTIFIED BY 's8723hk2';
-    GRANT ALL PRIVILEGES ON ducklington.* TO 'squire';
+    GRANT ALL PRIVILEGES ON example.* TO 'squire';
     exit
 
-You may now provide the credentials for the `ducklington` database and the `bagman` user to your application, which will now be able to use the database for its purposes. To ensure that PHP will be able to access the MySQL connector your just installed, restart the PHP service by issue the following command:
+You may now provide the credentials for the `example` database and the `bagman` user to your application, which will now be able to use the database for its purposes. To ensure that PHP will be able to access the MySQL connector your just installed, restart the PHP service by issue the following command:
 
     /etc/init.d/php-fastcgi restart
 
@@ -502,8 +502,8 @@ More Information
 
 You may wish to consult the following resources for additional information on this topic. While these are provided in the hope that they will be useful, please note that we cannot vouch for the accuracy or timeliness of externally hosted materials.
 
-- [Basic nginx Configuration](/docs/websites/nginx/basic-nginx-configuration/basic)
-- [Clustered Web Servers and Software Load Balancing with nginx](/docs/websites/nginx/basic-nginx-configuration/front-end-proxy-and-software-load-balancing)
+- [Basic nginx Configuration](/docs/websites/nginx/basic-nginx-configuration)
+- [Clustered Web Servers and Software Load Balancing with nginx](/docs/uptime/loadbalancing/use-nginx-for-proxy-services-and-software-load-balancing)
 - [Deploy CGI and Perl Scripts with Perl-FastCGI and nginx](/docs/web-servers/nginx/perl-fastcgi/centos-5)
 - [Use PostgeSQL as an Alternative to MySQL for data storage](/docs/databases/postgresql/centos-5)
 - [Deploy Python Applications with uWSGI and nginx](/docs/web-servers/nginx/python-uwsgi/centos-5)

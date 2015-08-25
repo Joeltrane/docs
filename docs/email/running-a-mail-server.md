@@ -51,9 +51,9 @@ If the prospect of managing your own mail server is too daunting, you should con
 
 -   [Fastmail](https://www.fastmail.fm) has good uptime and fast IMAP. It's paid and has capped storage.
 -   [Google Apps](http://www.google.com/intl/en/enterprise/apps/business/) uses the top-notch Gmail interface and has great uptime. It's paid and the IMAP implementation is unusual. We have a [guide](/docs/email/google-mail) on how to use Google Apps with your Linode.
--   [Outlook.com](http://www.microsoft.com/en-us/outlook-com/) is probably the best free mail host. The interface is nice and easy to use. Also, Outlook has been updated to use the IMAP protocol. Here's a [review](http://lifehacker.com/5928102/outlook-is-a-completely-new-feature+filled-webmail-service-from-microsoft).
+-   [Office 365](https://login.microsoftonline.com/) is the successor to Outlook.com and can support custom domains for email, amongst other services.
 
-If you decide to use an outside mail service, you will still need to set up [DNS](/docs/networking/dns/adding-dns-records) for your mail, using the settings provided by the third-party mail service.
+If you decide to use an outside mail service, you will still need to set up [DNS](/docs/networking/dns/dns-manager#adding-1) for your mail, using the settings provided by the third-party mail service.
 
 How Mail Servers Work
 ---------------------
@@ -123,11 +123,11 @@ Now that you understand how a mail server works and you've chosen the primary co
 
 The first step is to obtain and install an SSL certificate. An SSL certificate encrypts connections to your mail server, protecting passwords and email from harmful surveillance. It's possible to run a mail server without this protection, but we don't recommend it. If you follow our recommended build, you will absolutely need an SSL certificate.
 
-Any type of SSL certificate will work, but some certificates have different degrees of trustworthiness for your users. If you want the highest level of trustworthiness, you should [purchase a signed SSL certificate](/docs/security/ssl-certificates/commercial) from a reputable company. You can also use a free self-signed certificate if you are comfortable with the warnings it generates. You can [make your own](/docs/security/ssl-certificates/self-signed), or, if you're following our recommended build, you can use the one that comes with Dovecot by default. Decide what type of SSL certificate you need and acquire and install it now.
+Any type of SSL certificate will work, but some certificates have different degrees of trustworthiness for your users. If you want the highest level of trustworthiness, you should [purchase a signed SSL certificate](/docs/security/ssl/obtaining-a-commercial-ssl-certificate) from a reputable company. You can also use a free self-signed certificate if you are comfortable with the warnings it generates. You can [make your own](/docs/security/ssl/how-to-make-a-selfsigned-ssl-certificate), or, if you're following our recommended build, you can use the one that comes with Dovecot by default. Decide what type of SSL certificate you need and acquire and install it now.
 
 ### Software Installation
 
-The second step is installing and configuring the MTA, MDA, and IMAP/POP3 server. You'll also probably want to install a database server like MySQL or PostgreSQL to help you manage your domains, email addresses, user credentials, aliases, etc. Providing step-by-step instructions for every possible mail server build is beyond the scope of this article. For detailed instructions, see our [Postfix, Dovecot, and MySQL](/docs/email/postfix/postfix2.9.6-dovecot2.0.19-mysql) guide. Go ahead and install and configure the software you've chosen for your mail server build now.
+The second step is installing and configuring the MTA, MDA, and IMAP/POP3 server. You'll also probably want to install a database server like MySQL or PostgreSQL to help you manage your domains, email addresses, user credentials, aliases, etc. Providing step-by-step instructions for every possible mail server build is beyond the scope of this article. For detailed instructions, see our [Postfix, Dovecot, and MySQL](/docs/email/postfix/email-with-postfix-dovecot-and-mysql) guide. Go ahead and install and configure the software you've chosen for your mail server build now.
 
 {: .note }
 >
@@ -226,7 +226,6 @@ Webmail is a type of mail client that can be installed on your server and access
 
 Here are some of the most popular webmail clients:
 
--   [AtmailOpen](http://atmail.org) (the free version of Atmail) is an older but still very popular webmail client.
 -   [Citadel](http://www.citadel.org) is an all-in-one mail service that includes mail, calendars, instant messaging, mailing lists, and other collaboration tools. It's open source and geared towards small and medium-sized organizations. We have guides for [Citadel on Ubuntu 12.04](/docs/email/citadel/ubuntu-12.04-precise-pangolin) and [Citadel on Debian 6](/docs/email/citadel/debian-6-squeeze).
 -   [Horde Webmail](http://www.horde.org/apps/webmail) is an open-source IMAP client paired with some additional functions like account management and calendars.
 -   [RoundCube](http://roundcube.net) is an IMAP client with modern functionality and a clean layout.

@@ -19,13 +19,13 @@ Signing Up
 
 If you haven't already signed up for a Linode account, do that first. Follow these steps:
 
-1.  Visit the [Sign Up webpage](https://manager.linode.com/signup) and create a new account..
+1.  Visit the [Sign Up webpage](https://manager.linode.com/signup) and create a new account.
 2.  Once you've signed in, enter your billing and account information. Most accounts are activated instantly, but some accounts require manual review prior to activation. If your account is not immediately activated, please check your email for additional instructions.
 3.  Select a Linode plan and data center, as shown below.
 
     [![Available Linode plans.](/docs/assets/1744-getting-started1_small.png)](/docs/assets/1743-getting-started1.png)
 
-If you don't know which data center to select, try downloading our [speed test](http://www.linode.com/speedtest) to find the location that provides the best performance for your target audience. European users may find that the London or Newark data centers offer the best performance, and many users in Asia and Australia select the Tokyo or Fremont data centers. You can also generate [MTR reports](/docs/networking/diagnosing-network-issues-with-mtr/) for each of the data centers to determine which of our facilities provides the best latency from your particular location.
+If you don't know which data center to select, try downloading our [speed test](http://www.linode.com/speedtest) to find the location that provides the best performance for your target audience. European users may find that the London or Newark data centers offer the best performance, and many users in Asia and Australia select the Singapore or Fremont data centers. You can also generate [MTR reports](/docs/networking/diagnosing-network-issues-with-mtr/) for each of the data centers to determine which of our facilities provides the best latency from your particular location.
 
 Provisioning Your Linode
 ------------------------
@@ -36,19 +36,19 @@ After your Linode is created, you'll need to prepare it for operation. In this s
 
 The [Linode Manager](https://manager.linode.com) is a web-based control panel that allows you to manage your Linode virtual servers and services. Log in now by entering the username and password you created when you signed up. After you've created your first Linode, you can use the Linode Manager to boot and shut down your virtual server, access monitoring statistics, update your billing and account information, request support, and perform other administrative tasks.
 
-### Deploying a Linux Distribution
+### Deploying an Image
 
-After selecting your new Linode, select it and then click on **Deploy a Linux Distribution** you'll be prompted to deploy a *Linux distribution*, as shown below. This is the operating system that will be installed on your Linode. You can choose from [Arch Linux](http://www.archlinux.org/), [CentOS](http://www.centos.org/), [Debian](http://www.debian.org/), [Fedora](http://fedoraproject.org/), [Gentoo](http://www.gentoo.org/), [openSUSE](http://www.opensuse.org/en/), [Slackware](http://www.slackware.com/), and [Ubuntu](http://www.ubuntu.com/).
+After creating your new Linode, select it and then click on **Deploy an Image**. You'll be prompted to deploy a *Linux distribution*, as shown below. This is the operating system that will be installed on your Linode. You can choose from [Arch Linux](http://www.archlinux.org/), [CentOS](http://www.centos.org/), [Debian](http://www.debian.org/), [Fedora](http://fedoraproject.org/), [Gentoo](http://www.gentoo.org/), [openSUSE](http://www.opensuse.org/en/), [Slackware](http://www.slackware.com/), and [Ubuntu](http://www.ubuntu.com/).
 
 [![Select a data center.](/docs/assets/902-linode-manager-2-2-small.png)](/docs/assets/896-linode-manager-2.png)
 
 Here's how to deploy a Linux distribution:
 
-1.  Select a Linux distribution from the **Distribution** menu. You should choose the distribution that you are most comfortable with. If you're new to the Linux operating system, consider selecting Ubuntu 12.04 LTS. Ubuntu is the most popular distribution among Linode customers, and the LTS version is a stable distribution we use as an example throughout this Library.
-2.  Enter a size for the disk image in the **Deployment Disk Size** field. By default, all of the available space is allocated, but you can set a lower size if you plan on cloning a disk image or creating different configuration profiles. You can always create, resize, and delete disk images later.
+1.  Select a Linux distribution from the **Image** menu. You should choose the distribution that you are most comfortable with. If you're new to the Linux operating system, consider selecting Ubuntu 12.04 LTS. Ubuntu is the most popular distribution among Linode customers, and the LTS version is a stable distribution we use as an example throughout this Library.
+2.  Enter a size for the disk in the **Deployment Disk Size** field. By default, all of the available space is allocated, but you can set a lower size if you plan on cloning a disk or creating different configuration profiles. You can always create, resize, and delete disks later.
 3.  Select a size for the swap disk from the **Swap Disk** menu. We strongly recommend using the default size.
 4.  Enter a root password for your Linode in the **Root Password** field. The password must be at least 6 characters long and contain characters from two of the following categories: lower case letters, upper case letters, numbers, and punctuation. Don't forget this credential! You'll need it to log in to your Linode via SSH.
-5.  Click **Rebuild**.
+5.  Click **Deploy**.
 
  {: .note }
 >
@@ -56,7 +56,7 @@ Here's how to deploy a Linux distribution:
 
 ### Monitoring the Provisioning Status
 
-When you click the **Rebuild** button, the Linode Manager will start provisioning your server in the data center you selected, a process that can take several minutes to complete. You can use the Linode Manager's Dashboard to monitor the progress in real time, as shown below.
+When you click the **Deploy** button, the Linode Manager will start provisioning your server in the data center you selected, a process that can take several minutes to complete. You can use the Linode Manager's Dashboard to monitor the progress in real time, as shown below.
 
 [![Select a data center.](/docs/assets/900-linode-manager-3-2-small.png)](/docs/assets/898-linode-manager-3.png)
 
@@ -179,9 +179,9 @@ To learn more about setting your system's hostname and timezone, please watch th
 
 ### Ubuntu / Debian
 
-Enter following commands to set the hostname, replacing `plato` with the hostname of your choice:
+Enter following commands to set the hostname, replacing `hostname` with the hostname of your choice:
 
-    echo "plato" > /etc/hostname
+    echo "hostname" > /etc/hostname
     hostname -F /etc/hostname
 
 If it exists, edit the file `/etc/default/dhcpcd` to comment out the `SET_HOSTNAME` directive:
@@ -195,47 +195,47 @@ If it exists, edit the file `/etc/default/dhcpcd` to comment out the `SET_HOSTNA
 ### CentOS 7 / Fedora version 18 and above
 
 
-Enter the following command to set the hostname, replacing `plato` with the hostname of your choice:
+Enter the following command to set the hostname, replacing `hostname` with the hostname of your choice:
 
-    hostnamectl set-hostname plato
+    hostnamectl set-hostname hostname
 
 
 ### CentOS 6 / Fedora version 17 and below
 
-Enter the following commands to set the hostname, replacing `plato` with the hostname of your choice:
+Enter the following commands to set the hostname, replacing `hostname` with the hostname of your choice:
 
-    echo "HOSTNAME=plato" >> /etc/sysconfig/network
-    hostname "plato"
+    echo "HOSTNAME=hostname" >> /etc/sysconfig/network
+    hostname "hostname"
 
 ### Slackware
 
-Enter the following commands to set the hostname, replacing `plato` with the hostname of your choice:
+Enter the following commands to set the hostname, replacing `hostname` with the hostname of your choice:
 
-    echo "plato" > /etc/HOSTNAME
+    echo "hostname" > /etc/HOSTNAME
     hostname -F /etc/HOSTNAME
 
 ### Gentoo
 
-Enter the following commands to set the hostname, replacing `plato` with the hostname of your choice:
+Enter the following commands to set the hostname, replacing `hostname` with the hostname of your choice:
 
-    echo "HOSTNAME=\"plato\"" > /etc/conf.d/hostname
+    echo "HOSTNAME=\"hostname\"" > /etc/conf.d/hostname
     /etc/init.d/hostname restart
 
 ### Arch Linux
 
-Enter the following command to set the hostname, replacing `plato` with the hostname of your choice:
+Enter the following command to set the hostname, replacing `hostname` with the hostname of your choice:
 
-    hostnamectl set-hostname plato
+    hostnamectl set-hostname hostname
 
 ### Update /etc/hosts
 
-Next, edit your `/etc/hosts` file to resemble the following example, replacing `plato` with your chosen hostname, `example.com` with your system's domain name, and `12.34.56.78` with your system's IP address. As with the hostname, the domain name part of your FQDN does not necessarily need to have any relationship to websites or other services hosted on the server (although it may if you wish). As an example, you might host "www.something.com" on your server, but the system's FQDN might be "mars.somethingelse.com."
+Next, edit your `/etc/hosts` file to resemble the following example, replacing `hostname` with your chosen hostname, `example.com` with your system's domain name, and `12.34.56.78` with your system's IP address. As with the hostname, the domain name part of your FQDN does not necessarily need to have any relationship to websites or other services hosted on the server (although it may if you wish). As an example, you might host "www.something.com" on your server, but the system's FQDN might be "mars.somethingelse.com."
 
 {:.file }
 /etc/hosts
 : ~~~ 
   127.0.0.1 localhost.localdomain localhost 
-  12.34.56.78 plato.example.com plato
+  12.34.56.78 hostname.example.com hostname
   ~~~
 
 If you have IPv6 enabled on your Linode, you will also want to add an entry for your IPv6 address, as shown in this example:
@@ -244,8 +244,8 @@ If you have IPv6 enabled on your Linode, you will also want to add an entry for 
 /etc/hosts
 : ~~~
   127.0.0.1 localhost.localdomain localhost 
-  12.34.56.78 plato.example.com plato 
-  2600:3c01::a123:b456:c789:d012 plato.example.com plato
+  12.34.56.78 hostname.example.com hostname 
+  2600:3c01::a123:b456:c789:d012 hostname.example.com hostname
   ~~~
 
 The value you assign as your system's FQDN should have an "A" record in DNS pointing to your Linode's IPv4 address. For Linodes with IPv6 enabled, you should also set up a "AAAA" record in DNS pointing to your Linode's IPv6 address. For more information on configuring DNS, see [Adding DNS Records](/docs/hosting-website#sph_adding-dns-records).

@@ -17,7 +17,7 @@ Bazaar is a distributed version control system similar to [git](/docs/linux-tool
 
 Like all distributed version control systems, Bazaar can work "offline," and does not require a connection to a central repository to perform commits, consult previous versions of the history, or perform other operations on the local "branch" of project. Publishing "branches" is also straightforward.
 
-This document provides an introduction to all aspects of the Bazaar version control system: beginning with the installation of Bazaar, moving through several standard Bazaar-based workflows and concluding with a review of common Bazaar commands. However, before we begin discussing the use and operating of Bazaar we assume that you have followed our [getting started guide](/docs/getting-started/). If you're new to Linux server administration you may be interested in our [using Linux](/docs/using-linux/) document series including the [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics).
+This document provides an introduction to all aspects of the Bazaar version control system: beginning with the installation of Bazaar, moving through several standard Bazaar-based workflows and concluding with a review of common Bazaar commands. However, before we begin discussing the use and operating of Bazaar we assume that you have followed our [getting started guide](/docs/getting-started/). If you're new to Linux server administration you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts), the [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics).
 
 Installing Bazaar
 -----------------
@@ -131,7 +131,7 @@ Once published you can allow others to create local branches from this centraliz
 
     bzr branch sftp://fore@example.com/srv/bzr/morris-shared
 
-In this case, your system will need a user account for the user `fore` and additional user accounts for whatever users that require access to your project. Be sure to deploy [user groups and permissions](/docs/using-linux/users-and-groups) with prudence. You can also offer read only access to a Bazaar repository over HTTP by configuring a [web-server](/docs/web-servers) to provide access to the Bazaar project. Simply alter the branch command to resemble the following, depending on your web server configuration:
+In this case, your system will need a user account for the user `fore` and additional user accounts for whatever users that require access to your project. Be sure to deploy [user groups and permissions](/docs/tools-reference/linux-users-and-groups) with prudence. You can also offer read only access to a Bazaar repository over HTTP by configuring a [web-server](/docs/web-servers) to provide access to the Bazaar project. Simply alter the branch command to resemble the following, depending on your web server configuration:
 
     bzr branch http://bzr.example.com/morris-shared
 

@@ -44,7 +44,7 @@ You can now access the Nagios web interface for administration and reporting by 
 
  {: .note }
 >
-> The above example does not use SSL, and your password will be sent unencrypted. If you want to use encryption, you will need to generate (or purchase) and install an SSL certificate. Steps for generating and using your own certificate can be found in our [SSL guide](/docs/security/ssl-certificates/self-signed).
+> The above example does not use SSL, and your password will be sent unencrypted. If you want to use encryption, you will need to generate (or purchase) and install an SSL certificate. Steps for generating and using your own certificate can be found in our [SSL guide](/docs/security/ssl/how-to-make-a-selfsigned-ssl-certificate).
 
 Configuring Notifications
 -------------------------
@@ -78,7 +78,7 @@ Nagios can send alerts by email, but to receive them you'll need to add your ema
 
     {:.note}
     >
-    > To send email alerts to more than one user, duplicate the `define contact` section for as many users as you want. Or, to configure notifications to a [group](/docs/using-linux/users-and-groups), edit the `define contactgroup` section.
+    > To send email alerts to more than one user, duplicate the `define contact` section for as many users as you want. Or, to configure notifications to a [group](/docs/tools-reference/linux-users-and-groups), edit the `define contactgroup` section.
 
 3.  Save the changes to the configuration file by pressing `Control + x` and then pressing `y`.
 4.  Restart Nagios to apply the changes:
@@ -101,9 +101,9 @@ You can also configure Nagios to send notifications to an IRC channel through a 
 
         sudo nagircbot
 
-4.  Now you need to set those parameters. Use the following example as a starting point. Replace `irc.example.com` with the address of your IRC network, and `#bucknell` with the name of the IRC channel to which the bot should send notifications. Replace `nagircbot` with the desired nickname for your bot, and `ident` and `realname` with the ident and real name strings for the IRC bot.
+4.  Now you need to set those parameters. Use the following example as a starting point. Replace `irc.example.com` with the address of your IRC network, and `#example` with the name of the IRC channel to which the bot should send notifications. Replace `nagircbot` with the desired nickname for your bot, and `ident` and `realname` with the ident and real name strings for the IRC bot.
 
-        nagircbot -f /var/cache/nagios3/status.dat -s irc.example.com:6667 -c \#bucknell -C -n nagircbot -u ident -U realname -I 900
+        nagircbot -f /var/cache/nagios3/status.dat -s irc.example.com:6667 -c \#example -C -n nagircbot -u ident -U realname -I 900
 
     In the above example, `-f /usr/local/nagios/var/status.dat` tells the bot where to get status updates. The `-C` flag allows the bot to send colored messages to the channel depending on the status of the service. When services are down, red status messages are displayed. These messages turn green when the service has recovered. Warnings are displayed in yellow, but do not typically represent a critical issue.
 

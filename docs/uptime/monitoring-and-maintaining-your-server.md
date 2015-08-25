@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-description: Our guide to monitoring and maintaing your server.
+description: Our guide to monitoring and maintaining your server.
 keywords: 'monitor,monitoring,maintaining,maintenance'
 license: '[CC BY-ND 3.0](http://creativecommons.org/licenses/by-nd/3.0/us/)'
 alias: ['monitoring-and-maintaining/']
@@ -34,7 +34,7 @@ There are several different availability monitoring tools available. Your decisi
 
 -   **Multiple Servers**: If you run more than one server, [Nagios](/docs/server-monitoring/nagios) makes an ideal monitoring tool. This free and flexible framework makes it possible to keep an eye on a broad range of infrastructural components and network services. After installing the Nagios server and client packages, one Linode will act as the primary server to monitor the other servers.
 -   **Single Server**: If you only run a single server, you might want to use a third-party service to monitor your Linode. (You could install Nagios, but if your server goes down, Nagios will go down with it.) You could also use a network diagnostic tool like [MTR](/docs/linux-tools/mtr) to diagnose and isolate networking errors.
--   **Linode Longview**: [Longview](https://library.linode.com/longview) is Linode's own monitoring and graphing service. It offers real time data that can be used to help identify system issues. Using [Longview](https://library.linode.com/longview) in conjunction with a notification service like Nagios can help you to identify issues faster, and get your system up and running sooner.
+-   **Linode Longview**: [Longview](/docs/platform/longview/longview) is Linode's own monitoring and graphing service. It offers real time data that can be used to help identify system issues. Using Longview in conjunction with a notification service like Nagios can help you to identify issues faster, and get your system up and running sooner.
 
 If you need an availability monitoring tool for one or more server, take a look at Nagios or MTR now.
 
@@ -97,7 +97,7 @@ You have successfully configured email alerts in the Linode Manager.
 
 ### Using Linode Longview
 
-Our custom monitoring and graphing tool [Longview](https://library.linode.com/longview) can give you a detailed breakdown of system performance and resource usage. Longview can be used to monitor any virtual server or computer running Linux - including systems not hosted by Linode. On our platform, Longview, in conjunction with the Linode Manager email alerts, can help you to know quickly when your system is overloaded, and find out why.
+Our custom monitoring and graphing tool [Longview](/docs/platform/longview/longview) can give you a detailed breakdown of system performance and resource usage. Longview can be used to monitor any virtual server or computer running Linux - including systems not hosted by Linode. On our platform, Longview, in conjunction with the Linode Manager email alerts, can help you to know quickly when your system is overloaded, and find out why.
 
 ### Using Third-Party Tools
 
@@ -105,8 +105,8 @@ The graphs in the Linode Manager provide basic information for things like CPU u
 
 There are several free third-party performance monitoring tools available for your Linode:
 
--   [Munin](/docs/server-monitoring/munin): Munin is a system and network monitoring tool that generates graphs of resource usage in an accessible web based interface. Munin also makes it possible to monitor multiple Linodes with a single installation.
--   [Cacti](/docs/server-monitoring/cacti): If you have advanced monitoring needs, try Cacti. It allows you to monitor larger systems and more complex deployments with its plugin framework and web-based interface.
+-   Munin: Munin is a system and network monitoring tool that generates graphs of resource usage in an accessible web based interface. Munin also makes it possible to monitor multiple Linodes with a single installation.
+-   Cacti: If you have advanced monitoring needs, try Cacti. It allows you to monitor larger systems and more complex deployments with its plugin framework and web-based interface.
 -   [Nagios](/docs/server-monitoring/nagios): Nagios is primarily used as an availability monitoring tool, but it can also be configured to monitor performance. For more information, check out the [graphing and trending add-ons](http://exchange.nagios.org/directory/Addons/Graphing-and-Trending).
 
 If you need a third-party performance monitoring tool, take a look at Munin, Cacti, or Nagios now.
@@ -190,7 +190,7 @@ Linux distributions such as Ubuntu and Fedora use version numbers to identify th
 There are two ways to upgrade a Linode running an unsupported release. You can upgrade your existing server to the next release, or you can create a new Linode with the newest release available and transfer your files from the old server:
 
 -   To upgrade your server, use one of our [Upgrading Guides](/docs/upgrading) or check the distribution's website for instructions.
--   To create a new Linode and transfer your files from the old server, use our [Getting Started](/docs/getting-started) guide and then [migrate the disk image](/docs/migration) from the old server to transfer the files, or use an FTP client.
+-   To create a new Linode and transfer your files from the old server, use our [Getting Started](/docs/getting-started) guide and then [migrate the disk](/docs/migrate-to-linode/disk-images/migrating-a-server-to-your-linode) from the old server to transfer the files, or use an FTP client.
 
  {: .note }
 >

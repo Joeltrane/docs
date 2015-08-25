@@ -15,7 +15,7 @@ title: Manipulate Text from the Command Line with sed
 
 The traditional Unix utility `sed` makes it possible to manipulate strings and streams of text from the command line without using a text editing application. `sed` is useful in a number of different contexts, including finding and replacing strings of text in a large number of files, manipulating text for [Stack Scripts](http://linode.com/stackscripts/) and other kinds of scripts, as well as a component in basic shell scripting.
 
-This document provides a gentle overview of `sed` usage, accompanied by a number of practical applications of `sed`. If you find this guide helpful, please consider our guide to [basic administration practices](/docs/using-linux/administration-basics) or the rest of the [using linux series](/docs/using-linux/).
+This document provides a gentle overview of `sed` usage, accompanied by a number of practical applications of `sed`. If you find this guide helpful, please consider our guide to [basic administration practices](/docs/using-linux/administration-basics) or the rest of the [Tools & Reference section](/docs/tools-reference/).
 
 Using Sed
 ---------
@@ -26,17 +26,17 @@ In this guide, `sed` refers to recent versions of "GNU sed" which are included b
 
 `sed` commands take a particular form. Consider the following example:
 
-    sed -i -r 's/^(billy|tom)@.*ducklington\.org/\1@bucknell.net/' ~/roster.txt
+    sed -i -r 's/^(billy|tom)@.*example\.org/\1@example.com/' ~/roster.txt
 
 This command begins with the invocation (`sed`) followed by the `-i` option. `-i` allows sed to perform the modification "in place" on the file specified. The `-r` option forces `sed` to use an extended regular syntax. The next argument enclosed in single quotes (e.g. `'`) specifies the "substitution" or search and replace function. The final term of a `sed` command specifies the file object that the substitution function will be applied to.
 
 `sed` can also be used to modify streams of text rather than files, so often a command might take the form of:
 
-    cat ~/input-file | sed -r 's/^(billy|tom)@.*ducklington\.org/\1@bucknell.net/' > ~/output-file
+    cat ~/input-file | sed -r 's/^(billy|tom)@.*example\.org/\1@example.com/' > ~/output-file
 
 In this case, the contents of the stream of data which is created by running the `cat` command on the `~/input-file` is filtered through the `sed` operation. The result is written to the `~/output-file`. Generally, the left-hand side of the pipe would contain some other form of input, but you do not need to `cat` files into `sed` as the above command is equivalent to the following:
 
-    sed -r 's/^(billy|tom)@.*ducklington\.org/\1@bucknell.net/' ~/input-file > ~/output-file
+    sed -r 's/^(billy|tom)@.*example\.org/\1@example.com/' ~/input-file > ~/output-file
 
 Unless otherwise directed, `sed` will output the transformed text to standard output.
 
@@ -66,7 +66,7 @@ Finding and Replacing Strings within files Using Sed
 
 In some cases, the "in place" substitution with the `-i` argument provides the desired behavior. However, if you want to test a sed operation, or provide a "safety net", consider the following command:
 
-    sed -r -i.bak 's/ducklington/bucknell/g' ~/roster.txt
+    sed -r -i.bak 's/example/example/g' ~/roster.txt
 
 In this case, the existing file is copied to `~/roster.txt.bak` and the replacements are made automatically to `~/roster.txt`. If you want to reverse the changes, issue a command similar to `mv ~/roster.txt.bak ~/roster.txt`.
 

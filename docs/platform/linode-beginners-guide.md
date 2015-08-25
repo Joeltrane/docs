@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-description: 'Answers to common configuration questions for the Linode VPS platform.'
+description: 'Answers to common configuration questions for the Linode platform.'
 keywords: 'linode beginners guide,linux beginner,linode beginner,vps guide'
 license: '[CC BY-ND 3.0](http://creativecommons.org/licenses/by-nd/3.0/us/)'
 alias: ['beginners-guide/']
@@ -62,13 +62,13 @@ First and foremost, you might want to give the official [Linode backup system](h
 
 -   [Introduction to Rsync](/docs/linux-tools/utilities/rsync) - Using `rsync` to mirror files to another server.
 -   [Using Rdiff-backup with SSHFS](/docs/linux-tools/rdiff-backup) - An easy approach to using the `rdiff-backup` utility to maintain differential backups.
--   [Duplicating a Disk Image](/docs/disk-images-config-profiles#sph_duplicating-a-disk-image) - Creating an exact copy of a disk image in the Linode Manager.
--   [Copying a Disk Image Over SSH](/docs/linode-platform/migration/copy-disk-image-over-ssh) - How to download an exact binary image of your Linode's disk image over SSH.
+-   [Duplicating a Disk](/docs/disk-images-config-profiles#sph_duplicating-a-disk-image) - Creating an exact copy of a disk in the Linode Manager.
+-   [Copying a Disk Over SSH](/docs/migrate-to-linode/disk-images/copying-a-disk-image-over-ssh) - How to download an exact binary image of your Linode's disk over SSH.
 
 How can I install software on my Linode?
 ----------------------------------------
 
-Please refer to our guide on [Linux package management](/docs/using-linux/package-management) for distribution-specific instructions on getting software installed on your Linode. As you have full root access to your system, you're allowed to install anything that complies with our [terms of service](http://www.linode.com/tos.cfm).
+Please refer to our guide on [Linux package management](/docs/using-linux/package-management) for distribution-specific instructions on getting software installed on your Linode. As you have full root access to your system, you're allowed to install anything that complies with our [terms of service](http://www.linode.com/tos).
 
 How do I add another IP address?
 --------------------------------
@@ -95,7 +95,7 @@ First, check to be sure that the service (SSH, HTTP, etc) you're trying to acces
 How can I upgrade or downgrade my Linode?
 -----------------------------------------
 
-Resizing your Linode is automated via the "Resize" tab in the Linode Manager, pending [availability](http://www.linode.com/avail.cfm) for the plan you wish to move to in your datacenter. If you're downgrading, please make sure you've resized your disk images to fit within your desired plan's disk space allocation before issuing the resize job.
+Resizing your Linode is automated via the "Resize" tab in the Linode Manager, pending availability for the plan you wish to move to in your datacenter. If you're downgrading, please make sure you've resized your disk images to fit within your desired plan's disk space allocation before issuing the resize job.
 
 How can I test downloads speeds from different data centers?
 ------------------------------------------------------------
@@ -105,7 +105,7 @@ You may use our [speed test](http://www.linode.com/speedtest/) page to check lat
 Can I transfer my Linode to another data center?
 ------------------------------------------------
 
-Yes! Any time you'd like to transfer your Linode, you may open a ticket via the "Support" tab in the Linode Manager to request a DC migration. Your disk images and configuration profiles will move with your Linode, although your IP addresses will need to change. Once we stage your migration, you'll see a "migration pending" link in the Linode Manager, which you may use at your convenience to migrate your Linode.
+Yes! Any time you'd like to transfer your Linode, you may open a ticket via the "Support" tab in the Linode Manager to request a DC migration. Your disks and configuration profiles will move with your Linode, although your IP addresses will need to change. Once we stage your migration, you'll see a "migration pending" link in the Linode Manager, which you may use at your convenience to migrate your Linode.
 
 Where can I learn about Linux basics?
 -------------------------------------
@@ -113,7 +113,7 @@ Where can I learn about Linux basics?
 For those just getting started with Linux systems, we've created a series of guides that will help explain basic concepts:
 
 -   [Introduction to Linux Concepts](/docs/using-linux/linux-concepts) - An introduction to Linux and Unix-like systems.
--   [Linux Users and Groups](/docs/using-linux/users-and-groups) - An introduction to the principal concepts and use of the users and groups system.
+-   [Linux Users and Groups](/docs/tools-reference/linux-users-and-groups) - An introduction to the principal concepts and use of the users and groups system.
 -   [Using the Terminal](/docs/using-linux/using-the-terminal) - Introducing the command line interface known as the shell or terminal.
 -   [Linux Package Management](/docs/using-linux/package-management) - How to install software on your Linode.
 -   [Basic Linux Security Practices](/docs/security/basics) - Keeping your Linode safe from unauthorized access or abuse.
@@ -121,7 +121,7 @@ For those just getting started with Linux systems, we've created a series of gui
 Where can I get help with something not covered here?
 -----------------------------------------------------
 
-We always recommend consulting our excellent [user community](http://www.linode.com/community) first when faced with a question that doesn't seem to be addressed in our documentation. That said, if you get stuck you may open a support ticket from the "Support" tab in the Linode Manager.
+We always recommend consulting our excellent [user community](https://forum.linode.com) first when faced with a question that doesn't seem to be addressed in our documentation. That said, if you get stuck you may open a support ticket from the "Support" tab in the Linode Manager.
 
 
 

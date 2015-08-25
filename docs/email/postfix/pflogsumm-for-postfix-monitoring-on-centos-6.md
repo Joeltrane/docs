@@ -21,7 +21,7 @@ Pflogsumm is a simple Perl script that monitors your [Postfix](/docs/email/postf
 
  {: .note }
 >
-> This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](https://library.linode.com/using-linux/users-and-groups) guide.
+> This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 
 Prerequisites
 -------------
@@ -66,7 +66,7 @@ In this section, you will install and configure Pflogsumm.
 Testing
 -------
 
-Test the script by running the following command. Make sure you subsitute **/var/log/maillog** with your actual Postfix log location.
+Test the script by running the following command. Make sure you substitute **/var/log/maillog** with your actual Postfix log location.
 
     sudo perl /usr/local/pflogsumm/pflogsumm.pl /var/log/maillog
 

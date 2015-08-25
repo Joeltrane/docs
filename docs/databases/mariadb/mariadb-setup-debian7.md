@@ -21,7 +21,7 @@ MariaDB is a drop-in replacement for MySQL and it strives to be the logical choi
 
  {: .note }
 >
-> The steps required in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](https://library.linode.com/using-linux/users-and-groups) guide.
+> The steps required in this guide require root privileges. Be sure to run the steps below as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 
 Prerequisites
 -------------
@@ -220,7 +220,7 @@ You will be asked to change the root password, remove anonymous users, disable r
     OK, successfully used password, moving on...
 
     Setting the root password ensures that nobody can log into the MariaDB
-    root user without the proper authorisation.
+    root user without the proper authorization.
 
     You already have a root password set, so you can safely answer 'n'.
 

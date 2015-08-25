@@ -22,7 +22,7 @@ If you're running a mail server, it's a good idea to have spam and virus filteri
 Prerequisites
 -------------
 
-This guide assumes you have already followed our [Email with Postfix, Dovecot, and MySQL](/docs/email/postfix/postfix2.9.6-dovecot2.0.19-mysql) guide, and are running Ubuntu 12.04 LTS. This guide is written for the root user, and all commands listed require root privileges.
+This guide assumes you have already followed our [Email with Postfix, Dovecot, and MySQL](/docs/email/postfix/email-with-postfix-dovecot-and-mysql) guide, and are running Ubuntu 12.04 LTS. This guide is written for the root user, and all commands listed require root privileges.
 
 Installation
 ------------
@@ -33,7 +33,7 @@ Run the following commands to install all the necessary packages:
     apt-get upgrade
     apt-get install amavisd-new spamassassin clamav-daemon libnet-dns-perl libmail-spf-perl pyzor razor
 
-**Optional:** Installing the following packages will allow your filters to better scan through various archive files. Unless you're deploying on a small disk image where storage is a concern, this step is recommended:
+**Optional:** Installing the following packages will allow your filters to better scan through various archive files. Unless you're deploying on a small disk where storage is a concern, this step is recommended:
 
     apt-get install arj bzip2 cabextract cpio file gzip lha nomarch pax rar unrar unzip zip zoo
 
@@ -113,14 +113,14 @@ Here we'll set various options and settings for SpamAssassin.
 
         cp /etc/spamassassin/local.cf /etc/spamassassin/local.cf.orig
 
-3.  SpamAssassin scores incoming messages and assigns a score between 0 and 5. A score of 0 is considered safe, and a score of 5 is usually spam. You need to adjust its configuration file to determine what score threshold will be allowed through the filter. We're going to use 3.5, but this can be adjusted later. Locate and uncomment the line `# required_score 5.0` by removing the **\#** symbol, and adjust the value to 3.5:
+3.  SpamAssassin scores incoming messages and assigns a score based on its spam characteristics. A score of 0 is considered safe, and a score of 10 or higher is usually spam. You need to adjust its configuration file to determine what score threshold will be allowed through the filter. We're going to use 8, but this can be adjusted later. Locate and uncomment the line `# required_score 5.0` by removing the **\#** symbol, and adjust the value to 8:
 
     {: .file }
     /etc/spamassassin/local.cf
     :   ~~~
         #   Set the threshold at which a message is considered spam (default: 5.0)
         #
-        required_score 3.5
+        required_score 8
         ~~~
 
 4.  Once finished, save and exit the file. If you're using Nano the command is Control + x

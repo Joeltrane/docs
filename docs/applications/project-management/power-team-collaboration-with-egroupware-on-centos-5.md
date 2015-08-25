@@ -15,7 +15,7 @@ title: Power Team Collaboration with eGroupware on CentOS 5
 
 The eGroupware suite provides a group of server-based applications that offer collaboration and enterprise-targeted tools to help enable communication and information sharing between teams and institutions. These tools are tightly coupled and allow users to take advantage of data from one system, like the address book, and make use of it in other systems, including the calendar, CRM, and email systems. eGroupware is designed to be flexible and adaptable, and is capable of scaling to meet the demands of a diverse class of enterprise needs and work groups, all without the need to rely on a third-party vendor. As eGroupware provides its applications entirely independent of any third party service, the suite is a good option for organizations who need web-based groupware solutions, but do not want to rely on a third party provider for these services.
 
-Before installing eGroupware, we assume that you have followed our [getting started guide](/docs/getting-started/). If you're new to Linux server administration, you may be interested in our [using Linux](/docs/using-linux/) document series including the [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics). Additionally, you will need install a [LAMP stack](/docs/lamp-guides/centos-5) as a prerequisite for installing eGroupware.
+Before installing eGroupware, we assume that you have followed our [getting started guide](/docs/getting-started/). If you're new to Linux server administration, you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts/), [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics).Additionally, you will need install a [LAMP stack](/docs/lamp-guides/centos-5) as a prerequisite for installing eGroupware.
 
 Install eGroupware
 ------------------
@@ -45,7 +45,7 @@ Apache Virtual Hosting Configuration
     Alias /egroupware /usr/share/egroupware
     ~~~
 
-When inserted into the virtual hosting configuration for `ducklington.org`, accessing the URL `http://ducklington.org/egroupware/` will allow you to access your eGroupware site. If you do not have virtual hosting configured, eGroupware will be accessible at `/egroupware` of the default Apache host.
+When inserted into the virtual hosting configuration for `example.com`, accessing the URL `http://example.com/egroupware/` will allow you to access your eGroupware site. If you do not have virtual hosting configured, eGroupware will be accessible at `/egroupware` of the default Apache host.
 
 Before continuing with the installation of eGroupware, issue the following commands to start the webserver and database server for the first time. Furthermore the `chkconfig` commands will ensure that these services are initiated following reboots:
 
@@ -59,14 +59,14 @@ Configure eGroupware
 
 Before we begin the configuration of eGroupware, we need to ensure that a number of directories exist for use by eGroupware. Issue the following sequence of commands:
 
-    mkdir -p /srv/www/ducklington.org/backup
-    mkdir -p /srv/www/ducklington.org/tmp
-    mkdir -p /srv/www/ducklington.org/files
-    chown apache:apache -R /srv/www/ducklington.org/backup/
-    chown apache:apache -R /srv/www/ducklington.org/tmp
-    chown apache:apache -R /srv/www/ducklington.org/files
+    mkdir -p /srv/www/example.com/backup
+    mkdir -p /srv/www/example.com/tmp
+    mkdir -p /srv/www/example.com/files
+    chown apache:apache -R /srv/www/example.com/backup/
+    chown apache:apache -R /srv/www/example.com/tmp
+    chown apache:apache -R /srv/www/example.com/files
 
-Visit `http://ducklington.org/egroupware/setup/` in your web browser to begin the setup process presented by the eGroupware application. When you have completed the initial "Header Setup" process, select the option to write the "header" file and then continue to the "Setup/Admin." Ensure that you've selected the correct "Domain" if you configured more than one. At this juncture, you must install the eGroupware applications that you will expect to use. Select the proper character set and select the button to "'Install' all applications." You can now "Recheck" your installation. In the "Configuration" setup page, supply eGroupware with paths to the `backup/` `tmp/` and `files/` directory created above. Additionally, you will need to create an admin account for your eGroupware domain, which you can accomplish from this Setup Domain page.
+Visit `http://example.com/egroupware/setup/` in your web browser to begin the setup process presented by the eGroupware application. When you have completed the initial "Header Setup" process, select the option to write the "header" file and then continue to the "Setup/Admin." Ensure that you've selected the correct "Domain" if you configured more than one. At this juncture, you must install the eGroupware applications that you will expect to use. Select the proper character set and select the button to "'Install' all applications." You can now "Recheck" your installation. In the "Configuration" setup page, supply eGroupware with paths to the `backup/` `tmp/` and `files/` directory created above. Additionally, you will need to create an admin account for your eGroupware domain, which you can accomplish from this Setup Domain page.
 
 When all applications have been installed, you will be provided with a number of options that you can use to fine-tune the operations and behavior of your eGroupware instance. If you wish to use eGroupware to help manage email, you will need to have a running email system.
 

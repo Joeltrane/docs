@@ -15,7 +15,7 @@ title: Redis on CentOS 5
 
 Redis a high performance persistent key-value store, and is intended as a datastore solution for applications where performance and flexibility are more critical than persistence and absolute data integrity. As such, Redis may be considered a participant in the "NoSQL" movement and is an attractive tool for developers of some kinds of applications. This document provides both instructions for deploying the Redis server and an overview of best practices for maintaining Redis instances.
 
-Prior to beginning this guide for installing Redis, we assume that you have completed the steps outlined in our [getting started guide](/docs/getting-started/). If you're new to Linux systems administration, we recommend that you read the guides in our [using Linux](/docs/using-linux/) series, particularly the [administration basics guide](/docs/using-linux/administration-basics).
+Prior to beginning this guide for installing Redis, we assume that you have completed the steps outlined in our [getting started guide](/docs/getting-started/). If you are new to Linux server administration, you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts/), [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics).
 
 Install Redis
 -------------
@@ -113,7 +113,7 @@ In the default configuration, Redis runs in an interactive mode after being invo
 
     /opt/redis/redis-server /opt/redis/redis.conf.default
 
-You may now interact with Redis using any of the language specific bindings or use the built-in command line interface to interact with the Redis instance. Simply prefix any [Redis command](http://code.google.com/p/redis/wiki/CommandReference/) with the following string:
+You may now interact with Redis using any of the language specific bindings or use the built-in command line interface to interact with the Redis instance. Simply prefix any [Redis command](http://redis.io/commands/) with the following string:
 
     /opt/redis/redis-cli
 
@@ -189,9 +189,9 @@ More Information
 You may wish to consult the following resources for additional information on this topic. While these are provided in the hope that they will be useful, please note that we cannot vouch for the accuracy or timeliness of externally hosted materials.
 
 - [Redis Project Home Page](http://code.google.com/p/redis/)
-- [Redis Configuration](http://github.com/antirez/redis/blob/master/redis.conf)
+- [Redis Configuration](http://redis.io/topics/config)
 - [Redis Data Durability](http://code.google.com/p/redis/wiki/AppendOnlyFileHowto)
-- [Redis Command Reference](http://code.google.com/p/redis/wiki/CommandReference)
+- [Redis Command Reference](http://redis.io/commands)
 
 
 

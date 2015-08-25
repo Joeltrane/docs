@@ -20,7 +20,7 @@ The Linode Manager provides some basic monitoring of system resource utilization
 
 Munin is a system and network monitoring tool that uses RRDTool to generate useful visualizations of resource usage. The primary goal of the Munin project is to provide an easy to use tool that is simple to install and configure and provides information in an accessible web based interface. Munin also makes it possible to monitor multiple "nodes" with a single installation.
 
-Before installing Munin, we assume that you have followed our [getting started guide](/docs/getting-started/). If you're new to Linux server administration you may be interested in our [using Linux](/docs/using-linux/) document series, including the [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics). Additionally, you'll need to install a web server such as [Apache](/docs/web-servers/apache/installation/ubuntu-10.04-lucid) in order to use the web interface.
+Before installing Munin, we assume that you have followed our [getting started guide](/docs/getting-started/). If you are new to Linux server administration, you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts/), [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics). Additionally, you'll need to install a web server such as [Apache](/docs/web-servers/apache/installation/ubuntu-10.04-lucid) in order to use the web interface.
 
 Installing Munin
 ----------------
@@ -69,7 +69,7 @@ For more complex configurations, including grouping domains, see the comment sec
 {: .file }
 /etc/munin/munin.conf
 
-> \# A more complex example of a host tree \# \#\# First our "normal" host. \# [fii.foo.com] \# address foo \# \#\# Then our other host... \# [fay.foo.com] \# address fay \# \#\# Then we want totals... \# [foo.com;Totals] \#Force it into the "foo.com"-domain... \# update no \# Turn off data-fetching for this "host". \# \# \# The graph "load1". We want to see the loads of both machines... \# \# "fii=fii.foo.com:load.load" means "label=machine:graph.field" \# load1.graph\_title Loads side by side \# load1.graph\_order fii=fii.foo.com:load.load fay=fay.foo.com:load.load \# \# \# The graph "load2". Now we want them stacked on top of each other. \# load2.graph\_title Loads on top of each other \# load2.dummy\_field.stack fii=fii.foo.com:load.load fay=fay.foo.com:load.l\$ \# load2.dummy\_field.draw AREA \# We want area instead the default LINE2. \# load2.dummy\_field.label dummy \# This is needed. Silly, really. \# \# \# The graph "load3". Now we want them summarised into one field \# load3.graph\_title Loads summarised \# load3.combined\_loads.sum fii.foo.com:load.load fay.foo.com:load.load \# load3.combined\_loads.label Combined loads \# Must be set, as this is \# \# not a dummy field! \# \#\# ...and on a side note, I want them listen in another order (default is \#\# alphabetically) \# \# \# Since [foo.com] would be interpreted as a host in the domain "com", we \# \# specify that this is a domain by adding a semicolon. \# [foo.com;] \# node\_order Totals fii.foo.com fay.foo.com \#
+> \# A more complex example of a host tree \# \#\# First our "normal" host. \# [fii.foo.com] \# address foo \# \#\# Then our other host... \# [fay.foo.com] \# address fay \# \#\# Then we want totals... \# [foo.com;Totals] \#Force it into the "foo.com"-domain... \# update no \# Turn off data-fetching for this "host". \# \# \# The graph "load1". We want to see the loads of both machines... \# \# "fii=fii.foo.com:load.load" means "label=machine:graph.field" \# load1.graph\_title Loads side by side \# load1.graph\_order fii=fii.foo.com:load.load fay=fay.foo.com:load.load \# \# \# The graph "load2". Now we want them stacked on top of each other. \# load2.graph\_title Loads on top of each other \# load2.dummy\_field.stack fii=fii.foo.com:load.load fay=fay.foo.com:load.l\$ \# load2.dummy\_field.draw AREA \# We want area instead the default LINE2. \# load2.dummy\_field.label dummy \# This is needed. Silly, really. \# \# \# The graph "load3". Now we want them summarized into one field \# load3.graph\_title Loads summarized \# load3.combined\_loads.sum fii.foo.com:load.load fay.foo.com:load.load \# load3.combined\_loads.label Combined loads \# Must be set, as this is \# \# not a dummy field! \# \#\# ...and on a side note, I want them listen in another order (default is \#\# alphabetically) \# \# \# Since [foo.com] would be interpreted as a host in the domain "com", we \# \# specify that this is a domain by adding a semicolon. \# [foo.com;] \# node\_order Totals fii.foo.com fay.foo.com \#
 
 ### Munin Node Configuration
 
@@ -133,7 +133,7 @@ You may wish to consult the following resources for additional information on th
 - [Munin Exchange](http://muninexchange.projects.linpro.no/)
 - [Installing Munin on Other Linux Distributions](http://munin.projects.linpro.no/wiki/LinuxInstallation)
 - [Installing Munin on Mac OSX](http://munin.projects.linpro.no/wiki/DarwinInstallation)
-- [Installing Munin on Solaris](http://munin.projects.linpro.no/wiki/SolarisInstallation)
+- [Installing Munin on Solaris](http://munin-monitoring.org/wiki/MuninInstallationSolaris)
 
 
 

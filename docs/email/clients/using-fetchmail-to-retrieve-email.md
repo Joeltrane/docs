@@ -15,7 +15,7 @@ title: Using Fetchmail to Retrieve Email
 
 The `fetchmail` program is a classic UNIX and Unix-like utility used to retrieve email from remote servers and deliver it to local users on a server. There are a number of different scenarios where fetchmail is used. Fetchmail is a popular tool for manually downloading email from a POP or IMAP server for personal use on a local machine. Another common application uses fetchmail to create an "email gateway," where email is collected from a number of different accounts or from a large centralized server and provided to the user in a manageable situation.
 
-If you're new to Linode we always recommend completing our [getting started guide](/docs/getting-started/) before beginning a tutorial. If you're new to Linux we also recommend considering the [beginners guide](/docs/beginners-guide/) and the many documents in the [using Linux](/docs/using-linux/) section of the Library. If you need a more full featured email stack, consider one of our other [email guides](/docs/email/).
+If you're new to Linode we always recommend completing our [getting started guide](/docs/getting-started/) before beginning a tutorial. If you're new to Linux we also recommend considering the [beginners guide](/docs/beginners-guide/) and the many documents in the [Tools & Reference](/docs/tools-reference/) section of the Library. If you need a more full featured email stack, consider one of our other [email guides](/docs/email/).
 
 Installing Fetchmail
 --------------------
@@ -72,7 +72,7 @@ In the first specification, fetchmail is told to check the `mail.example.com` se
 
 In the second example, a single account (i.e. `betty`) is retrieved from the remote server (i.e. `mail.dexample.org`) and passed to the MDA `procmail` utility. Additionally, account has the `sslproto` option is enabled to encrypt this traffic using `ssl`.
 
-Fetchmail requires that the `~/.fetchmailrc` file have the [access permissions](/docs/using-linux/users-and-groups) of 600. Permissions of 600 equate to read and writeable by the user account which "owns" the file with no permissions granted to group or other users. To achieve this, issue the following command:
+Fetchmail requires that the `~/.fetchmailrc` file have the [access permissions](/docs/tools-reference/linux-users-and-groups) of 600. Permissions of 600 equate to read and writeable by the user account which "owns" the file with no permissions granted to group or other users. To achieve this, issue the following command:
 
     chmod 600 ~/.fetchmailrc
 
@@ -92,7 +92,7 @@ Once the `.fetchmailrc` file is configured, fetchmail can be invoked simply by i
 
     fetchmail
 
-When invoked from the command line, fetchmail will `poll` all of the configured servers from the `.fetchmailrc` file and deliver the messages to the default mail spool for that user in `/var/mail/` or hand the messages off to the specfied `mda` command.
+When invoked from the command line, fetchmail will `poll` all of the configured servers from the `.fetchmailrc` file and deliver the messages to the default mail spool for that user in `/var/mail/` or hand the messages off to the specified `mda` command.
 
 Fetchmail will deliver the message to the current user's mailbox under the following conditions:
 
@@ -100,7 +100,7 @@ Fetchmail will deliver the message to the current user's mailbox under the follo
 -   There are no local users are specified with the `is "[local-user]" here;` syntax in the account specification within the `.fetchmailrc` file.
 -   There are no corresponding local users for the remote usernames on the server.
 
-If fetchmail is running as the root user, it will drop privledges to deliver messages to specific user accounts. If fetchmail is unable to deliver messages as root it will deposit them in the system's "postmaster" account. The postmaster account defaults to postmaster, and the mail spool is located at `/var/mail/postmaster`, unless modified by a global option.
+If fetchmail is running as the root user, it will drop privileges to deliver messages to specific user accounts. If fetchmail is unable to deliver messages as root it will deposit them in the system's "postmaster" account. The postmaster account defaults to postmaster, and the mail spool is located at `/var/mail/postmaster`, unless modified by a global option.
 
 When fetchmail has completed this process it will quit until it is invoked again. If you want fetchmail to run as a daemon process, consider using the daemon option, either by specifying a global option as described below or by specifying the `-d` option on the command line. For example:
 
@@ -111,7 +111,7 @@ In the above example, fetchmail will poll mail sources for new mail every 300 se
 Global Settings
 ---------------
 
-In addition to the configuration options described above, fetchmail provides a number of additional "global" configuration options. These allow you to configure the behavior of fetchmail with regards to all of the servers that it polls. These options are included at the begginning of the file and begin with the word `set`. Here is an example:
+In addition to the configuration options described above, fetchmail provides a number of additional "global" configuration options. These allow you to configure the behavior of fetchmail with regards to all of the servers that it polls. These options are included at the beginning of the file and begin with the word `set`. Here is an example:
 
 {: .file-excerpt }
 .fetchmailrc

@@ -24,7 +24,7 @@ Because subversion uses a centralized architecture, in order to collaborate with
 
 There are a number of options for accessing and managing Subversion repositories on local systems. Your favorite subversion client will be connected to and interact with the repositories that you configure on your Linode. If you access and use your subversion repositories using the standard shell commands and `svn` command, the commands and processes in this guide will be directly applicable to your local environment.
 
-Before installing subversion we assume that you have followed our [getting started](/docs/getting-started/) guide. If you're new to Linux server administration, you may be interested in our [using Linux](/docs/using-linux/) document series, including the [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics). Additionally, if you intended to access Subversion over HTTP, this document uses the [Apache HTTP server](/docs/web-servers/apache/), which you may want to configure beyond the scope of this document.
+Before installing subversion we assume that you have followed our [getting started](/docs/getting-started/) guide. If you're new to Linux server administration, you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts/), [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics). Additionally, if you intended to access Subversion over HTTP, this document uses the [Apache HTTP server](/docs/web-servers/apache/), which you may want to configure beyond the scope of this document.
 
 Installing Subversion
 ---------------------
@@ -186,7 +186,7 @@ In order to avoid permission conflicts with multiple users, set the "sticky" bit
 
     chmod -R +s /srv/svn/morris
 
-The sticky bit allows all users with access to the files, by virtue of their group membership, to create files that are owned by the user and group that owns the directory, rather than by their own default user and group. This also allows users to execute scripts in these directories, typically the "hooks," as the user that owns them, and thus poses a potential security risk. If you would like to learn more about [groups and UNIX permissions consult this overview](/docs/using-linux/users-and-groups).
+The sticky bit allows all users with access to the files, by virtue of their group membership, to create files that are owned by the user and group that owns the directory, rather than by their own default user and group. This also allows users to execute scripts in these directories, typically the "hooks," as the user that owns them, and thus poses a potential security risk. If you would like to learn more about [groups and UNIX permissions consult this overview](/docs/tools-reference/linux-users-and-groups).
 
 ### Configuring the Apache Web Server
 
